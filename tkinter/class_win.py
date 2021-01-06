@@ -109,7 +109,7 @@ class APP(Tk):
     def __init__(self):
         super().__init__()
         self.title("农村淘宝抢购")
-        self.geometry('1000x600')
+        self.geometry('1000x580')
         self.database = []
         self.Info = []
         self.setupUI()
@@ -129,7 +129,9 @@ class APP(Tk):
         Button(addG, text="添加商品", font=('楷体', 12), width=15, height=1, command=self.addGoods).pack(side=RIGHT)
         # show information
         self.showInfo()
-    
+        # start and exit
+        Button(self, text="开始秒杀", font=('楷体', 12), width=15, height=1, command=self.startBuy).place(x=670,y=530)
+        Button(self, text="退出", font=('楷体', 12), width=15, height=1, command=self.exit).place(x=830,y=530)
     def showInfo(self):
         ''' 创建一个可滚动的表格'''
         form = ttk.Treeview(self, show="headings", height=18)
@@ -230,6 +232,16 @@ class APP(Tk):
     def clearAll(self):
         self.database = []
         self.showInfo()
+    
+    def exit(self):
+        self.destroy()
+    def startBuy(self):
+        pass
+
+class buy():
+    def __init__(self):
+        pass
+
 
 if __name__ == '__main__':
     app = APP()
