@@ -362,6 +362,7 @@ class APP(Tk):
         return startBuy
 
     def refreshPrice(self):
+        pass
 class Buy():
     def __init__(self):
         self.infoList = []
