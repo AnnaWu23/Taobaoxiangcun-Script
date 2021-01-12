@@ -135,14 +135,14 @@ class APP(Tk):
     def showInfo(self):
         ''' 创建一个可滚动的表格'''
         form = ttk.Treeview(self, show="headings", height=18)
-        form['columns'] = ("name", "price", "idealPrice", "buyStatus")
+        form['columns'] = ('brand', "name", "price", "idealPrice", "buyStatus")
         # 设置列宽度以及居中显示
-        widthSet = [500,150,150,120]
+        widthSet = [100, 400,150,150,120]
         for i in range(0, len(form['columns'])):
             form.column(form['columns'][i], width=widthSet[i])
             form.column(form['columns'][i], anchor = "center")
         # 添加列名
-        names = ["商品型号", "价格", "心理价位", "抢购状态"]
+        names = ["品牌","商品型号", "价格", "心理价位", "抢购状态"]
         for i in range(0,len(form['columns'])):
             form.heading(form['columns'][i], text=names[i])
         form.place(x=40, y=130)     
@@ -157,7 +157,7 @@ class APP(Tk):
         if len(self.database) == 0:
             return
         for i in range(0, len(self.database)):
-            form.insert('', 0, text='',values=(self.database[i]['name'], self.database[i]['time'],self.database[i]['price'],self.database[i]['float']))
+            form.insert('', 0, text='',values=(i, self.database[i]['name'], self.database[i]['time'],self.database[i]['price'],self.database[i]['float']))
     
     def addGoods(self):
         inputGoods = askAddGood()
@@ -238,7 +238,7 @@ class APP(Tk):
     def startBuy(self):
         pass
 
-class buy():
+class Buy():
     def __init__(self):
         pass
 
